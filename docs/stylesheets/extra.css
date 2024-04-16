@@ -1,0 +1,22 @@
+/* Remove the admonition (pencil) icon for summaries */
+/* See: https://squidfunk.github.io/mkdocs-material/reference/admonitions/#custom-admonitions-docsstylesheetsextracss */
+.md-typeset .admonition,
+.md-typeset summary:before {
+    content: none;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+    padding-left: .6rem !important;
+}
+
+.md-footer, .md-footer-meta, .md-copyright, .md-copyright__highlight {
+    background-color: #ff0204;
+    color: #ffffffff
+}
+
+:root {
+    --md-primary-fg-color:        #ff0204;
+    --md-primary-fg-color--light: #ff595c;
+    --md-primary-fg-color--dark:  #a30104;
+}

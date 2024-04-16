@@ -1,0 +1,83 @@
+site_name: "THG ABI '05"
+site_description: "Webseite der Abitur-Absolventen des Theodor Heuss Gymnasiums (THG) von 2005"
+site_url: !ENV MKDOCS_SITE_URL
+
+repo_url: "https://github.com/atetzner/thgabi05"
+edit_uri: "/edit/main/"
+repo_name: "atetzner/thgabi05"
+copyright: '&copy; <a href="mailto:info@bit-insomnia.de">Andreas Tetzner</a>'
+
+site_dir: ./site
+docs_dir: ./docs
+exclude_docs: "**/index.html" # Without this, mkdocs will exclude some Readme.md files because they collide with index.html files
+
+# Auto-generated using awesome-pages plugin
+# nav:
+
+plugins:
+  - search
+  - awesome-pages:
+      collapse_single_pages: true
+  - exclude:
+      glob:
+        - "**/build/**"
+        - "**/node_modules/**"
+        - "taskfile/**"
+      regex:
+        - '.*\.(?!(md|svg|jpg|jpeg|png|pages))$'
+  - git-revision-date
+  #- techdocs-core
+
+theme:
+  # https://squidfunk.github.io/mkdocs-material/getting-started/
+  name: material
+  palette:
+    primary: custom
+    accent: custom
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+  icon:
+    repo: fontawesome/brands/github
+  social:
+    - icon: 
+  logo: assets/logo.jpg
+  favicon: assets/favicon.ico
+
+markdown_extensions:
+  - smarty
+  - extra
+  - toc
+  - attr_list
+  - markdown.extensions.tables
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.gemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
+      alt: short
+      options:
+        attributes:
+          align: absmiddle
+          height: 20px
+          width: 20px
+        image_path: https://github.githubassets.com/images/icons/emoji/unicode/
+        non_standard_image_path: https://github.githubassets.com/images/icons/emoji/
+  - pymdownx.tasklist
+  - pymdownx.superfences
+  - pymdownx.saneheaders
+  - pymdownx.smartsymbols
+  - pymdownx.betterem
+  - pymdownx.tilde:
+      subscript: false
+  - pymdownx.details
+
+extra:
+  generator: false # Suppress "Made with Material for MkDocs" in footer
+
+extra_css:
+  - stylesheets/extra.css
