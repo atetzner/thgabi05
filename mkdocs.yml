@@ -1,6 +1,6 @@
 site_name: "THG ABI '05"
 site_description: "Webseite der Abitur-Absolventen des Theodor Heuss Gymnasiums (THG) von 2005"
-site_url: !ENV MKDOCS_SITE_URL
+site_url: https://atetzner.github.io/thgabi05
 
 repo_url: "https://github.com/atetzner/thgabi05"
 edit_uri: "/edit/main/"

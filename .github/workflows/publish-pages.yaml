@@ -1,0 +1,39 @@
+name: Publish GH Pages
+on:
+  push:
+    branches:
+      - main
+    tags-ignore:
+      - "**"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:latest
+    steps:
+      - name: 🔧  Setup
+        shell: bash
+        run: |
+          apt update && \
+          DEBIAN_FRONTEND=noninteractive apt install -y git
+          
+      - name: ☁ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Build and publish
+        shell: bash
+        run: |
+          export PIP_ROOT_USER_ACTION=ignore
+
+          chmod +x mkdocs-install.sh
+          ./mkdocs-install.sh
+
+          git config --system user.name github-actions[bot]
+          git config --system user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git config --global --add safe.directory "$PWD"
+
+          mkdocs gh-deploy --force
