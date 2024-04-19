@@ -15,6 +15,15 @@
     color: #ffffffff
 }
 
+.home-news-banner {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: #fffb01;
+    text-align: center;
+}
+
 :root {
     --md-primary-fg-color:        #ff0204;
     --md-primary-fg-color--light: #ff595c;
