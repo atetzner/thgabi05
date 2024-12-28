@@ -19,7 +19,7 @@ MKDOCS_AUTOLINK_REFRENCES_VERSION="0.2.1"
 MKDOCS_GIT_REVISION_DATE_VERSION="0.3.2"
 MKDOCS_EXCLUDE_VERSION="1.0.2"
 
-pip install \
+pip install --break-system-packages \
     mkdocs-techdocs-core==$MKDOCS_TECHDOCS_CORE_VERSION \
     mkdocs-material==$MKDOCS_MATERIAL_VERSION \
     pymdown-extensions==$MKDOCS_PYMDOWN_VERSION \
@@ -28,8 +28,9 @@ pip install \
     autolink-references-mkdocs-plugin==$MKDOCS_AUTOLINK_REFRENCES_VERSION \
     mkdocs-git-revision-date-plugin==$MKDOCS_GIT_REVISION_DATE_VERSION \
     mkdocs-exclude==$MKDOCS_EXCLUDE_VERSION \
-    tzdata \
-&& \
+    tzdata
+
 # Remove MkDocs hard-coded notice in footer
-grep -v '{% trans mkdocs_link' /usr/local/lib/python3.10/dist-packages/mkdocs/themes/readthedocs/footer.html > /tmp/footer.html && \
-mv /tmp/footer.html /usr/local/lib/python3.10/dist-packages/mkdocs/themes/readthedocs/footer.html
+PYTHON_VERSION="$(python3 --version | sed 's/Python \([0-9]\+\.[0-9]\+\).*/\1/')"
+grep -v '{% trans mkdocs_link' /usr/local/lib/python$PYTHON_VERSION/dist-packages/mkdocs/themes/readthedocs/footer.html > /tmp/footer.html
+mv /tmp/footer.html /usr/local/lib/python$PYTHON_VERSION/dist-packages/mkdocs/themes/readthedocs/footer.html
